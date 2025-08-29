@@ -75,6 +75,6 @@ public class Upgrade : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        scoreText.text = "Batalhas Vencidas: " + score;
+        scoreText.text = "Reconquiste Jerusalem: " + score;
     }
 }
