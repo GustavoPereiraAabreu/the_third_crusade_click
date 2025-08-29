@@ -1,45 +1,26 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI; // Para Button
+using UnityEngine.UI;
 
-public class Upgradde : MonoBehaviour
+public class Upgrade : MonoBehaviour
 {
     [Header("Pontuação")]
     public int score = 0;
     public TextMeshProUGUI scoreText;
 
-    [Header("Upgrades")]
-    public int Somack = 10;
-    public int Subtraick = -10;
-    public float Multiplicack = 2;
-    public float Divideck = 2;
-
     [Header("Áreas e Vitória")]
-    public Button reconquistarButton;
-    public TextMeshProUGUI areaText; 
-    public int custoReconquista = 50;
+    public Button reconquistarButton; // botão para reconquistar área
+    public int custoReconquista = 50; // custo inicial para reconquistar
     private int areasReconquistadas = 0;
-    public GameObject winPanel;
+    public GameObject winPanel; // painel de vitória
 
     private void Start()
     {
-        if (reconquistarButton != null)
-        {
-            reconquistarButton.gameObject.SetActive(false);
-            reconquistarButton.onClick.AddListener(ReconquistarArea);
-        }
-
         if (winPanel != null)
             winPanel.SetActive(false);
 
         UpdateScoreText();
-        UpdateAreaText();
-    }
-
-    public void upgradeSoma()
-    {
-        score += Somack;
-        UpdateScoreText();
+        CheckReconquistaDisponivel(); // garante que o botão já aparece certo
     }
 
     public void AddPoints()
@@ -49,15 +30,19 @@ public class Upgradde : MonoBehaviour
         CheckReconquistaDisponivel();
     }
 
-    public void CheckReconquistaDisponivel()
+    void CheckReconquistaDisponivel()
     {
-        
-        if (score >= custoReconquista && areasReconquistadas < 2)
+        if (areasReconquistadas < 2)
         {
+            // botão sempre aparece
             reconquistarButton.gameObject.SetActive(true);
+
+            // fica interativo só se tiver pontos suficientes
+            reconquistarButton.interactable = (score >= custoReconquista);
         }
         else
         {
+            // some quando o jogo já foi vencido
             reconquistarButton.gameObject.SetActive(false);
         }
     }
@@ -66,43 +51,30 @@ public class Upgradde : MonoBehaviour
     {
         if (score >= custoReconquista)
         {
-            score -= custoReconquista; // gasta pontos para reconquistar
+            score -= custoReconquista;
             areasReconquistadas++;
-            UpdateAreaText();
+
+            custoReconquista *= 2; // próxima área fica mais cara
             UpdateScoreText();
+            CheckReconquistaDisponivel();
 
-            // aumenta o custo da próxima reconquista
-            custoReconquista *= 2;
-
-            // verifica vitória
             if (areasReconquistadas >= 2)
             {
                 Vitoria();
             }
-            else
-            {
-                reconquistarButton.gameObject.SetActive(false);
-            }
         }
     }
 
-    public void Vitoria()
+    void Vitoria()
     {
         if (winPanel != null)
-        {
-            winPanel.SetActive(true); // mostra painel de vitória
-        }
-        Debug.Log("Você ganhou a Terceira Cruzada!");
+            winPanel.SetActive(true);
+
+        Debug.Log("Vitória! Você venceu a Terceira Cruzada!");
     }
 
     public void UpdateScoreText()
     {
         scoreText.text = "Batalhas Vencidas: " + score;
-    }
-
-    public void UpdateAreaText()
-    {
-        if (areaText != null)
-            areaText.text = "Áreas Reconquistadas: " + areasReconquistadas;
     }
 }
