@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Upgrade : MonoBehaviour
+public class Upgradi : MonoBehaviour
 {
     [Header("Pontuação")]
     public int score = 0;
@@ -34,15 +34,15 @@ public class Upgrade : MonoBehaviour
     {
         if (areasReconquistadas < 2)
         {
-      
+
             reconquistarButton.gameObject.SetActive(true);
 
-       
+
             reconquistarButton.interactable = (score >= custoReconquista);
         }
         else
         {
-    
+
             reconquistarButton.gameObject.SetActive(false);
         }
     }
@@ -63,6 +63,6 @@ public class Upgrade : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        scoreText.text = "Reconquiste Jerusalem: " + score;
+        scoreText.text = "Reconquiste o ACRE: " + score;
     }
 }

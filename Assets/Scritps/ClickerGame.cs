@@ -9,6 +9,7 @@ public class ClickerGame : MonoBehaviour
     public int Subtraick = -10;
     public float Multiplicack = 2;
     public float Divideck = 2;
+    internal static object instance;
 
     public void upgradeSoma()
     {
