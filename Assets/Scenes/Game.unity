@@ -209,13 +209,14 @@ GameObject:
   - component: {fileID: 91930189}
   - component: {fileID: 91930191}
   - component: {fileID: 91930190}
+  - component: {fileID: 91930192}
   m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &91930189
 RectTransform:
   m_ObjectHideFlags: 0
@@ -249,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -274,6 +275,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 91930188}
   m_CullTransparentMesh: 1
+--- !u!114 &91930192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 91930188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e438ba7d9cf8b514fbe5086e6be57749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winPanel: {fileID: 91930188}
 --- !u!1 &146073256
 GameObject:
   m_ObjectHideFlags: 0
@@ -370,9 +384,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: AreaManager, Assembly-CSharp
-        m_MethodName: ReconquistarArea
-        m_Mode: 3
+        m_TargetAssemblyTypeName: Diminuicao, Assembly-CSharp
+        m_MethodName: UpdateScoreText
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1264,7 +1278,7 @@ GameObject:
   - component: {fileID: 1129420691}
   - component: {fileID: 1129420690}
   m_Layer: 0
-  m_Name: GameObject (1)
+  m_Name: VICTORY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1332,8 +1346,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -283, y: 74}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -290.33, y: 0}
+  m_SizeDelta: {x: 200.95, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1178714017
 MonoBehaviour:
@@ -1420,7 +1434,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -442.39868, w: 0}
+  m_margin: {x: 0, y: 0, z: -423.44678, w: -80.54561}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2080,7 +2094,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2124829620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4728dcd39505ea143be47df46b8be2c6, type: 3}
+  m_Script: {fileID: 11500000, guid: 0e52a7a7702762446bf5fe6923b42688, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   score: 100

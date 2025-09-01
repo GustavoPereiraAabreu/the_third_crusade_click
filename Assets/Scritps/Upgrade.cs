@@ -5,12 +5,12 @@ using UnityEngine.UI;
 public class Upgrade : MonoBehaviour
 {
     [Header("Pontuação")]
-    public int score = 0;
+    public int score = 300;
     public TextMeshProUGUI scoreText;
 
     [Header("Áreas e Vitória")]
     public Button reconquistarButton;
-    public int custoReconquista = 50;
+    public int custoReconquista = 300;
     private int areasReconquistadas = 0;
     public GameObject winPanel;
 
@@ -30,7 +30,7 @@ public class Upgrade : MonoBehaviour
         CheckReconquistaDisponivel();
     }
 
-    void CheckReconquistaDisponivel()
+    public void CheckReconquistaDisponivel()
     {
         if (areasReconquistadas < 2)
         {

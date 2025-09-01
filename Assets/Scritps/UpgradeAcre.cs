@@ -2,7 +2,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class Upgradi : MonoBehaviour
+public class UpgradeAcre : MonoBehaviour
 {
     [Header("Pontuação")]
     public int score = 0;
@@ -10,8 +10,8 @@ public class Upgradi : MonoBehaviour
 
     [Header("Áreas e Vitória")]
     public Button reconquistarButton;
-    public int custoReconquista = 50;
-    private int areasReconquistadas = 0;
+    public int custoReconquista = 50; 
+    private int areasReconquistadas = 0; 
     public GameObject winPanel;
 
     private void Start()
@@ -30,22 +30,22 @@ public class Upgradi : MonoBehaviour
         CheckReconquistaDisponivel();
     }
 
-    void CheckReconquistaDisponivel()
+   
+    public void CheckReconquistaDisponivel()
     {
         if (areasReconquistadas < 2)
         {
-
             reconquistarButton.gameObject.SetActive(true);
-
-
             reconquistarButton.interactable = (score >= custoReconquista);
         }
         else
         {
-
             reconquistarButton.gameObject.SetActive(false);
+            if (winPanel != null)
+                winPanel.SetActive(true);
         }
     }
+
 
     public void ReconquistarArea()
     {
@@ -57,7 +57,6 @@ public class Upgradi : MonoBehaviour
             custoReconquista *= 2;
             UpdateScoreText();
             CheckReconquistaDisponivel();
-
         }
     }
 
