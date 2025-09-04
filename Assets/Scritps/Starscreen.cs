@@ -8,7 +8,7 @@ public class Startscreen : MonoBehaviour
     {
 
         SceneManager.LoadScene("Game");
-        //
+      
 
     }
 
